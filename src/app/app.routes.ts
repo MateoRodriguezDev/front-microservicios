@@ -1,8 +1,11 @@
 import { Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
+import { NoAuthGuard } from './guards/noAuth.guard';
 
 export const routes: Routes = [
     {
         path: '',
+        canActivate: [AuthGuard],
         loadComponent: () => import('./shared/components/layout/layout'),
         children: [
             {
@@ -35,6 +38,7 @@ export const routes: Routes = [
     },
     {
         path: 'login',
+        canActivate: [NoAuthGuard],
         loadComponent: () => import('./business/login/login'),
     },
     {
