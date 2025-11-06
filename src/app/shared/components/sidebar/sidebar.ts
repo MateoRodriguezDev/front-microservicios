@@ -5,6 +5,7 @@ import { AuthInterceptorService } from '../../../interceptors/auth.interceptor.s
 @Component({
   selector: 'app-sidebar',
   imports: [RouterLink, RouterLinkActive],
+  providers: [],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.css'
 })
