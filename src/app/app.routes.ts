@@ -13,6 +13,14 @@ export const routes: Routes = [
                 loadComponent: () => import('./business/dashboard/dashboard')
             },
             {
+                path: 'createProductView',
+                loadComponent: () => import('./business/create-product-view/create-product-view')
+            },
+             {
+                path: 'createUserView',
+                loadComponent: () => import('./business/create-user-view/create-user-view')
+            },
+            {
                 path: 'cart',
                 loadComponent: () => import('./business/cart/cart')
             },

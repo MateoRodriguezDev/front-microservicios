@@ -1,12 +1,11 @@
-
-
 <div class="mb-12 gap-y-10 gap-x-6">
   <h2 class="p-2 font-bold text-2xl mb-5">Orders</h2>
-  <app-order-card />
-  <app-order-card />
-  <app-order-card />
-  <app-order-card />
-  <app-order-card />
-  <app-order-card />
-  <app-order-card />
+
+  @for(order of orders; track order._id){
+
+  <app-order-card [order]="order" />
+
+  } @empty {
+  <p>No hay ordenes disponibles</p>
+  }
 </div>

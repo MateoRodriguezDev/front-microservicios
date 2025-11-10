@@ -30,8 +30,10 @@ export default class Login {
 
     this._authService.login(data).subscribe({
       next: (results) => {
+        console.log(results)
         this._toastService.success('Sesión iniciada correctamente');
         localStorage.setItem('token', results.token)
+        localStorage.setItem('user', JSON.stringify(results))
         this.router.navigate(['/'])
       
       },

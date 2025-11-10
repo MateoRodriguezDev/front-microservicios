@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IUser } from '../../interfaces/user.interface';
 
 @Component({
   selector: 'app-profile-card',
@@ -7,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './profile-card.css'
 })
 export class ProfileCard {
+
+   @Input() user!: IUser;
+
+
+
+   
 
 }

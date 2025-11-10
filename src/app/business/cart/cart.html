@@ -1,11 +1,14 @@
-<div class="flex justify-between">
+<div class="flex justify-between items-center">
   <h2 class="p-2 font-bold text-2xl mb-5">Cart</h2>
 <h2 class="p-2 font-bold text-2xl mb-5">Total: ${{totalPrice}}</h2>
+<button (cartChanged)="allCarts()" (click)="buyCarts()" class="p-2 bg-green-600 text-white font-bold h-1/2 rounded-lg hover:cursor-pointer justify-center transition-all duration-300 [transition-timing-function:cubic-bezier(0.175,0.885,0.32,1.275)] active:-translate-y-1 active:scale-x-90 active:scale-y-110">Comprar carrito</button>
 </div>
   <div class="grid grid-cols-4 bg-clip-border rounded-xl bg-slate-100 text-gray-700 shadow-md">
     
     @for(cart of carts; track cart.id){
-        <app-product-cart [cart]="cart" (cartChanged)="allCarts()"/>
+        @if(!cart.bought) {
+          <app-product-cart [cart]="cart" (cartChanged)="allCarts()"/>
+        }
     } @empty {
       <p>No hay carritos disponibles</p>
     }

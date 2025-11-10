@@ -20,6 +20,12 @@ export const environment = {
         getCartByUserToken: `${$BASE_REST}/api/carts/userCartsToken`,
         createCarts: `${$BASE_REST}/api/carts`,
         updateCart:`${$BASE_REST}/api/carts`,
-        deleteCart:`${$BASE_REST}/api/carts`
+        deleteCart:`${$BASE_REST}/api/carts`,
+        purchaseCart:`${$BASE_REST}/api/carts/buyCart`
+    },
+    orders: {
+        allOrders: `${$BASE_REST}/api/orders`,
+        getOrderByID: `${$BASE_REST}/api/orders`,
+        getOrderByUserID: `${$BASE_REST}/api/orders/user/token`,
     }
 }

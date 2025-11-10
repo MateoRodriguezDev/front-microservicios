@@ -4,10 +4,12 @@ import { ProductService } from '../../services/product.service';
 import { ToastService } from 'angular-toastify';
 import { CartService } from '../../services/cart.service';
 import { ICart } from '../../interfaces/cart.interface';
+import { IUser } from '../../interfaces/user.interface';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-product-card',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './product-card.html',
   styleUrl: './product-card.css',
 })
@@ -21,10 +23,14 @@ export class ProductCard {
   @Input() product!: IProduct;
   @Output() productChanged = new EventEmitter<void>();
 
+  //Agarro el user del local storage para verificar su role
+  userLocalStorage = localStorage.getItem('user');
+  user: IUser = this.userLocalStorage ? JSON.parse(this.userLocalStorage) : {};
+
+  isSuperAdmin: boolean = this.user.role === 'superadmin' ? true : false;
 
   //Creo un carrito con el product
   createCart(idProduct: number | undefined) {
-    
     if (idProduct) {
       const cart: ICart = { idProduct, quantity: 1 };
 
@@ -40,7 +46,6 @@ export class ProductCard {
       });
     }
   }
-
 
   //Elimino el producto del catalogo
   deleteProduct(productId: number | undefined) {

@@ -2,7 +2,7 @@
   <div
     class="hover:cursor-pointer bg-white bg-clip-border mx-4 rounded-xl overflow-hidden bg-linear-to-tr from-blue-600 to-blue-400 text-white shadow-blue-500/40 shadow-lg absolute -mt-4 grid h-16 w-16 place-items-center justify-center transition-all duration-300 [transition-timing-function:cubic-bezier(0.175,0.885,0.32,1.275)] active:-translate-y-1 active:scale-x-90 active:scale-y-110"
     (click)="createCart(product.id)"
-    >
+  >
     <svg
       fill="#ffffff"
       version="1.1"
@@ -26,17 +26,17 @@
 
   <div class="p-4 text-right">
     <p class="text-sm text-blue-gray-600">{{ product.name }}</p>
-    <h4 class="text-2xl font-semibold text-blue-gray-900">
-      ${{ product.price }}
-    </h4>
+    <h4 class="text-2xl font-semibold text-blue-gray-900">${{ product.price }}</h4>
   </div>
 
   <div class="border-t border-blue-gray-50 p-4 flex items-center justify-between">
     <p class="text-base text-blue-gray-600">
-      <strong class="text-green-500">{{ product.stock }}</strong>&nbsp;units in stock
+      <strong class="text-green-500">{{ product.stock }}</strong
+      >&nbsp;units in stock
     </p>
 
     <button
+      *ngIf="isSuperAdmin"
       (click)="deleteProduct(product.id)"
       class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-lg text-sm transition-colors"
     >

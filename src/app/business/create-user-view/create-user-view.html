@@ -1,0 +1,50 @@
+<div class="flex justify-center items-center min-h-screen bg-gray-100">
+  <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
+    <h2 class="text-2xl font-bold text-center mb-6 text-gray-800">
+      Crear nuevo usuario
+    </h2>
+
+    <form (ngSubmit)="createUser()" #form="ngForm" class="space-y-5">
+      <div>
+        <label for="email" class="block text-gray-700 font-medium mb-2">
+          Correo electrónico
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          [(ngModel)]="user.email"
+          required
+          placeholder="Ej: usuario@correo.com"
+          class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+
+      <div>
+        <label for="password" class="block text-gray-700 font-medium mb-2">
+          Contraseña
+        </label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          [(ngModel)]="user.password"
+          required
+          minlength="6"
+          placeholder="********"
+          class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+
+      <button
+        type="submit"
+        [disabled]="form.invalid"
+        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 disabled:opacity-50"
+      >
+        Crear usuario
+      </button>
+    </form>
+  </div>
+</div>
+
+<lib-toastify-toast-container></lib-toastify-toast-container>

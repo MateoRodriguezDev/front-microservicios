@@ -41,5 +41,9 @@ export class CartService {
         return this.http.delete(`${environment.carts.deleteCart}/${cartId}`, );
     }
 
+    purchaseCart(cartId: number): Observable<any> {
+        return this.http.get(`${environment.carts.purchaseCart}/${cartId}`, );
+    }
+
     
 }

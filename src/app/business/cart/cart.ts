@@ -49,4 +49,29 @@ export default class Cart {
     })
   }
 
+  //Compro los carritos
+  buyCarts() {
+  this.carts.forEach(cart => {
+    if (cart.id) {
+      this._cartService.purchaseCart(cart.id).subscribe({
+        next: (response) => {
+          console.log(`✅ Carrito ${cart.id} comprado`, response);
+          
+        },
+        error: (err) => {
+          console.error(`❌ Error al comprar carrito ${cart.id}`, err);
+          this._toastService.error('Hubo un error al comprar el carrito');
+        }
+      });
+    }
+  });
+
+  if(this.carts.length !== 0){
+    this._toastService.success('Carrito comprado');
+  }
+  this.carts = []
+
+}
+
+
 }
