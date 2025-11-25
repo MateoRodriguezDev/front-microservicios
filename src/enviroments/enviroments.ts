@@ -4,7 +4,8 @@ export const environment = {
     baseRest: $BASE_REST,
      auth: {
         login: `${$BASE_REST}/api/auth/login`,
-        register: `${$BASE_REST}/api/auth/register`
+        register: `${$BASE_REST}/api/auth/register`,
+        allUsers: `${$BASE_REST}/api/auth/users`
     },
      products: {
         allProducts: `${$BASE_REST}/api/products`,

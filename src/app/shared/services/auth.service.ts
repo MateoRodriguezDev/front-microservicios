@@ -19,4 +19,8 @@ export class AuthService {
     register(data: IRegister): Observable<any> {
         return this.http.post(`${environment.auth.register}`, data);
     }
+
+    allUsers(): Observable<any> {
+        return this.http.get(`${environment.auth.allUsers}`)
+    }
 }

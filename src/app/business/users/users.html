@@ -9,11 +9,15 @@
       </button>
     </a>
   </div>
-  <app-user-card />
-  <app-user-card />
-  <app-user-card />
-  <app-user-card />
-  <app-user-card />
-  <app-user-card />
-  <app-user-card />
+   <div class="bg-clip-border rounded-xl bg-slate-100 text-gray-700 shadow-md">
+    @for(user of users; track user.id){
+    <app-user-card [user]="user" />
+    } @empty {
+    <p>No hay usuarios disponibles</p>
+    }
+  </div>
 </div>
+
+
+
+<lib-toastify-toast-container></lib-toastify-toast-container>
